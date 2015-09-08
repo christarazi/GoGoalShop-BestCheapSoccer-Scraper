@@ -21,6 +21,13 @@ def goGoalShop():
 			if "Bayern" in elem:
 				print("GoGoalShop.com: Found Bayern jersey!")
 				push = myPhone.push_link("GoGoalShop.com: Bayern jersey available", "https://www.gogoalshop.com/flash-index")
+			if "Arsenal" in elem:
+				print("GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: Arsenal jersey available", "https://www.gogoalshop.com/flash-index")
+			if "Barcelona" in elem:
+				print("GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: Barcelona jersey available", "https://www.gogoalshop.com/flash-index")
+
 			#print(elem)
 	except Exception as e:
 		print("GoGoalShop.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
@@ -47,6 +54,13 @@ def bestCheapSoccer():
 			if "Bayern" in elem:
 				print("BestCheapSoccer.com: Found Bayern jersey!")
 				push = myPhone.push_link("BestCheapSoccer.com: Bayern jersey available", "http://www.bestcheapsoccer.com/flash-index")
+			if "Arsenal" in elem:
+				print("GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: Arsenal jersey available", "https://www.gogoalshop.com/flash-index")
+			if "Barcelona" in elem:
+				print("GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: Barcelona jersey available", "https://www.gogoalshop.com/flash-index")
+	
 			#print(elem)
 	except Exception as e:
 		print("BestCheapSoccer.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
