@@ -1,6 +1,7 @@
 from pushbullet import Pushbullet
 from lxml import html
 import requests
+import time
 
 def goGoalShop():
 	try:
@@ -14,35 +15,30 @@ def goGoalShop():
 		items = []
 
 		for i in range(1, 13):
-			xpathString = '//*[@id="gagaDealDiv"]/ul/li[' + str(i) + ']/div[2]/a/@title'
+			xpathString = '//*[@id="gagaDealDiv"]/ul/li[' + str(i) + ']/div[2]/a/text()'
 			items.append(tree.xpath(xpathString)[0])
 
 		for elem in items:
 			if "Bayern" in elem:
-				print("GoGoalShop.com: Found Bayern jersey!")
-				push = myPhone.push_link("GoGoalShop.com: Bayern jersey available", "https://www.gogoalshop.com/flash-index")
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Bayern jersey!")
+				push = myPhone.push_link("GoGoalShop.com: " + elem, "https://www.gogoalshop.com/flash-index")
 			if "Arsenal" in elem:
-				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("GoGoalShop.com: Arsenal jersey available", "https://www.gogoalshop.com/flash-index")
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: " + elem, "https://www.gogoalshop.com/flash-index")
 			if "Barcelona" in elem:
-				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("GoGoalShop.com: Barcelona jersey available", "https://www.gogoalshop.com/flash-index")
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
+				push = myPhone.push_link("GoGoalShop.com: " + elem, "https://www.gogoalshop.com/flash-index")
 
-			#print(elem)
 	except Exception as e:
-		print("GoGoalShop.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
-		print(e)
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | " + e)
 	else:
-		print("GoGoalShop.com: Scraping ran successfully!")
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Scraping ran successfully!")
 
 def bestCheapSoccer():
 	try:
 		page = requests.get('http://www.bestcheapsoccer.com/flash-index')
 		tree = html.fromstring(page.text)
-
-		#//*[@id="gagaDealDiv"]/ul - entire list
-		#//*[@id="gagaDealDiv"]/ul/li[1] - first of the list
-		#//*[@id="gagaDealDiv"]/ul/li[12] - last of the list
 
 		items = []
 
@@ -52,21 +48,20 @@ def bestCheapSoccer():
 
 		for elem in items:
 			if "Bayern" in elem:
-				print("BestCheapSoccer.com: Found Bayern jersey!")
-				push = myPhone.push_link("BestCheapSoccer.com: Bayern jersey available", "http://www.bestcheapsoccer.com/flash-index")
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Bayern jersey!")
+				push = myPhone.push_link("BestCheapSoccer.com: " + elem, "http://www.bestcheapsoccer.com/flash-index")
 			if "Arsenal" in elem:
-				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("BestCheapSoccer.com: Arsenal jersey available", "http://www.bestcheapsoccer.com/flash-index")
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
+				push = myPhone.push_link("BestCheapSoccer.com: " + elem, "http://www.bestcheapsoccer.com/flash-index")
 			if "Barcelona" in elem:
-				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("BestCheapSoccer.com: Barcelona jersey available", "http://www.bestcheapsoccer.com/flash-index")
-	
-			#print(elem)
+				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
+				push = myPhone.push_link("BestCheapSoccer.com: " + elem, "http://www.bestcheapsoccer.com/flash-index")
+
 	except Exception as e:
-		print("BestCheapSoccer.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
-		print(e)
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | " + e)
 	else:
-		print("BestCheapSoccer.com: Scraping ran successfully!")
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Scraping ran successfully!")
 
 try:
 	with open("api_key.txt", 'r') as fileIn:
@@ -74,7 +69,7 @@ try:
 		pb = Pushbullet(api_key)
 		myPhone = pb.devices[0]
 except Exception as e:
-	print("Something went wrong with the Pushbullet.")
+	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | Something went wrong with the Pushbullet.")
 else:
 	goGoalShop()
 	bestCheapSoccer()
