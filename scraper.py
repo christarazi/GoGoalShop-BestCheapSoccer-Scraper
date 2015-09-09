@@ -56,10 +56,10 @@ def bestCheapSoccer():
 				push = myPhone.push_link("BestCheapSoccer.com: Bayern jersey available", "http://www.bestcheapsoccer.com/flash-index")
 			if "Arsenal" in elem:
 				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("GoGoalShop.com: Arsenal jersey available", "https://www.gogoalshop.com/flash-index")
+				push = myPhone.push_link("BestCheapSoccer.com: Arsenal jersey available", "http://www.bestcheapsoccer.com/flash-index")
 			if "Barcelona" in elem:
 				print("GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link("GoGoalShop.com: Barcelona jersey available", "https://www.gogoalshop.com/flash-index")
+				push = myPhone.push_link("BestCheapSoccer.com: Barcelona jersey available", "http://www.bestcheapsoccer.com/flash-index")
 	
 			#print(elem)
 	except Exception as e:
