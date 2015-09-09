@@ -59,7 +59,7 @@ def bestCheapSoccer():
 
 	except Exception as e:
 		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
-		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | " + e)
+		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | " + str(e))
 	else:
 		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Scraping ran successfully!")
 
@@ -67,7 +67,7 @@ try:
 	with open("api_key.txt", 'r') as fileIn:
 		api_key = fileIn.read().strip()
 		pb = Pushbullet(api_key)
-		myPhone = pb.devices[0]
+		myPhone = pb.devices[0]	
 except Exception as e:
 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | Something went wrong with the Pushbullet.")
 else:
