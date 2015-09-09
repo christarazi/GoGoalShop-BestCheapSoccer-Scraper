@@ -1,4 +1,4 @@
-# GoGoalShop-BestCheapSoccer-Scraper
+# Soccer Jersey Scraper
 Python3 scraper to search for Bayern jerseys when they go on sale.
 
 Uses Pushbullet API to send a notification to my phone when the scraper finds a Bayern jersey.
