@@ -70,11 +70,11 @@ def bestCheapSoccer():
 
 try:
 	with open("api_key.txt", 'r') as fileIn:
-		api_key = fileIn.read()
-	pb = Pushbullet(api_key)
-	myPhone = pb.devices[0]
+		api_key = fileIn.read().strip()
+		pb = Pushbullet(api_key)
+		myPhone = pb.devices[0]
 except Exception as e:
-	print(e)
+	print("Something went wrong with the Pushbullet.")
 else:
 	goGoalShop()
 	bestCheapSoccer()
