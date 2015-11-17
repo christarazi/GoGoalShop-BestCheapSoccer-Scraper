@@ -20,7 +20,7 @@ def goGoalShop():
 			items.append((tree.xpath(titleXpathString)[0], tree.xpath(priceXpathString)[0]))
 
 		for item, price in items:
-			if "Bayern" and "Shirt" in item:
+			if "Bayern" in item and "Shirt" in item:
 				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Bayern jersey!")
 				push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
 			# if "Arsenal" in item:
@@ -49,7 +49,7 @@ def bestCheapSoccer():
 			items.append((tree.xpath(titleXpathString)[0], tree.xpath(priceXpathString)[0]))
 
 		for item, price in items:
-			if "Bayern" in item:
+			if "Bayern" in item and "Shirt" in item:
 				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Bayern jersey!")
 				push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
 			# if "Arsenal" in item:
