@@ -20,15 +20,15 @@ def goGoalShop():
 			items.append((tree.xpath(titleXpathString)[0], tree.xpath(priceXpathString)[0]))
 
 		for item, price in items:
-			if "Bayern" in item:
+			if "Bayern" and "Shirt" in item:
 				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Bayern jersey!")
 				push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
-			if "Arsenal" in item:
-				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
-			if "Barcelona" in item:
-				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
-				push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
+			# if "Arsenal" in item:
+			# 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
+			# 	push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
+			# if "Barcelona" in item:
+			# 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Found Barcelona jersey!")
+			# 	push = myPhone.push_link(price + ": " + item, "https://www.gogoalshop.com/flash-index")
 
 	except Exception as e:
 		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | GoGoalShop.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
@@ -52,12 +52,12 @@ def bestCheapSoccer():
 			if "Bayern" in item:
 				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Bayern jersey!")
 				push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
-			if "Arsenal" in item:
-				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
-				push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
-			if "Barcelona" in item:
-				print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
-				push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
+			# if "Arsenal" in item:
+			# 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
+			# 	push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
+			# if "Barcelona" in item:
+			# 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Found Barcelona jersey!")
+			# 	push = myPhone.push_link(price + ": " + item, "http://www.bestcheapsoccer.com/flash-index")
 
 	except Exception as e:
 		print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | BestCheapSoccer.com: Oops! Something went wrong during scraping. Most likely items are not available yet.")
