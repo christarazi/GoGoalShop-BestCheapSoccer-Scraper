@@ -69,7 +69,10 @@ try:
 	with open("api_key.txt", 'r') as fileIn:
 		api_key = fileIn.read().strip()
 		pb = Pushbullet(api_key)
-		myPhone = pb.devices[0]	
+		for i in pb.devices:
+			if i.nickname == "LG G2":
+				myPhone = i
+
 except Exception as e:
 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | Something went wrong with the Pushbullet.")
 	print(time.strftime("%a %m/%d/%y %I:%M:%S") + " | " + str(e))
